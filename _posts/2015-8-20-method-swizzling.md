@@ -10,14 +10,14 @@ title: SwiftでのMethod Swizzlingについて
     + `NSObject`のサブクラス、もしくは`@objc`属性のついたクラス
     + メソッドが`dynamic`であること
 
-```
+```swift
 class MyClass : NSObject {
         dynamic func hoge() { print("hoge") }
             dynamic func fuga() { print("fuga") }
 }
 ```
 
-```
+```swift
 let myClass = MyClass()
 
 // 入れ替え
@@ -176,22 +176,22 @@ a.hoge() // A : piyo()
 
 ```
 class A : NSObject {
-    
+
     dynamic func hoge() { println("A : hoge()"); }
-    
+
     dynamic func fuga(comment: String) {
         println("A : fuga(\(comment))");
     }
-    
+
     dynamic func fugaReturnString(comment: String) -> String {
         println("A : fugaReturnString(\(comment)) -> \(comment)");
         return comment
     }
-    
+
     dynamic func piyo(num: Int) {
         println("A : piyo(\(num))");
     }
-    
+
 }
 ```
 
@@ -203,7 +203,7 @@ switchInstanceMethod(A.self, "hoge", A.self, "fuga:")
 ```
 
 + 返り値の有無が違う場合
-	+ 入れ替えが行えるが、なにも返ってこない。	
+	+ 入れ替えが行えるが、なにも返ってこない。
 
 ```
 switchInstanceMethod(A.self, "fugaReturnString:", A.self, "fuga:")
@@ -212,7 +212,7 @@ println(ret) // ()
 ```
 
 + 引数の型が違う場合
-	
+
 	+ 入れ替えられるが、(おそらくcastできない場合) 落ちる
 
 ```
@@ -220,7 +220,7 @@ switchInstanceMethod(A.self, "fuga:", A.self, "piyo:")
 a.fuga("comment") // A : piyo(140579043279440)
 //a.piyo(123)     これは落ちる
 ```
-	
+
 ## その他参考記事
 
 [What are the Dangers of Method Swizzling in Objective C?](http://stackoverflow.com/questions/5339276/what-are-the-dangers-of-method-swizzling-in-objective-c)
