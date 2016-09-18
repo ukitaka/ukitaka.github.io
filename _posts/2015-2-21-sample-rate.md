@@ -29,7 +29,7 @@ automaticallyConfiguresApplicationAudioSessionプロパティをNOにすると�
 
 エラー処理・値の反映確認は省略します。
 
-```
+```objective_c
 NSError *error;
 
 //8kHzに設定
@@ -40,17 +40,16 @@ NSError *error;
 [[AVAudioSession sharedInstance] setMode:AVAudioSessionModeVideoRecording error:&error];
 
 [[AVAudioSession sharedInstance] setPreferredIOBufferDuration:0.5 error:&error];
-            
+
 [[AVAudioSession sharedInstance] setActive:YES error:&error];
 ```
-    
+
 ### AVCaptureSessionの設定
 
-```
+```objective_c
 self.session = [[AVCaptureSession alloc] init];
 [self.session beginConfiguration];
 self.session.automaticallyConfiguresApplicationAudioSession = NO;
    ...
-[self.session commitConfiguration]; 
+[self.session commitConfiguration];
 ```
-

@@ -34,7 +34,7 @@ myClass.hoge() // fuga
 
 B isa A として `hoge`と`fuga`を入れ替える
 
-```
+```swift
 class A : NSObject {
     dynamic func hoge() { println("A : hoge()"); }
     dynamic func fuga() { println("A : fuga()"); }
@@ -80,7 +80,7 @@ b.hoge()
 
 [ishkawa/ISRefreshControl](https://github.com/ishkawa/ISRefreshControl/blob/master/ISRefreshControl/UITableView%2BISRefreshControl.m) での実装であるように`load`で入れ替えるのが定石だった。
 
-```
+```swift
 + (void)load
 {
     @autoreleasepool {
@@ -103,7 +103,7 @@ b.hoge()
 
 戻せます。
 
-```
+```swift
 let a = A()
 switchInstanceMethod(A.self, "hoge", A.self, "fuga")
 a.hoge() // A : fuga()
@@ -124,7 +124,7 @@ a.hoge() // A : fuga()
 
 入れ替え先のセレクタがなくても元の挙動になるだけで落ちなかったです。
 
-```
+```swift
 let a = A()
 switchInstanceMethod(A.self, "hoge", A.self, "piyo")
 a.hoge() // A : hoge()
@@ -134,7 +134,7 @@ a.hoge() // A : hoge()
 
 可能でした。
 
-```
+```swift
 class A : NSObject {
     dynamic func hoge() { println("A : hoge()"); }
 }
@@ -155,7 +155,7 @@ c.hoge() // A : hoge()
 
 可能でした。
 
-```
+```swift
 class A : NSObject {
     dynamic func hoge() { println("A : hoge()"); }
     dynamic func fuga() { println("A : fuga()"); }
@@ -174,7 +174,7 @@ a.hoge() // A : piyo()
 
 入れ替え自体では落ちないが普通の呼び出しでは基本的には落ちる。
 
-```
+```swift
 class A : NSObject {
 
     dynamic func hoge() { println("A : hoge()"); }
@@ -197,7 +197,7 @@ class A : NSObject {
 
 + 引数の数が違う場合
 
-```
+```swift
 switchInstanceMethod(A.self, "hoge", A.self, "fuga:")
 // a.hoge() は落ちる
 ```
@@ -205,7 +205,7 @@ switchInstanceMethod(A.self, "hoge", A.self, "fuga:")
 + 返り値の有無が違う場合
 	+ 入れ替えが行えるが、なにも返ってこない。
 
-```
+```swift
 switchInstanceMethod(A.self, "fugaReturnString:", A.self, "fuga:")
 let ret = a.fuga("これはコメント") // A : fugaReturnString(これはコメント) -> これはコメント
 println(ret) // ()
@@ -215,7 +215,7 @@ println(ret) // ()
 
 	+ 入れ替えられるが、(おそらくcastできない場合) 落ちる
 
-```
+```swift
 switchInstanceMethod(A.self, "fuga:", A.self, "piyo:")
 a.fuga("comment") // A : piyo(140579043279440)
 //a.piyo(123)     これは落ちる

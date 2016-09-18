@@ -49,7 +49,7 @@ MyViewController
 
 イベントの作成
 
-```
+```swift
 struct ShowAlertEvent : Stimulator.Event {
 
     typealias Responder = ShowAlertResponder
@@ -74,15 +74,15 @@ protocol ShowAlertResponder {
 }
 ```
 
-イベントの発火 
+イベントの発火
 
-```
+```swift
 self.stimulate(ShowAlertEvent("title", "message"))
 ```
 
 イベントの処理
 
-```
+```swift
 extension MyViewController : ShowAlertResponder {
 
     func showAlert(event: ShowAlertEvent) {
@@ -105,7 +105,7 @@ public protocol Event {
 }
 
 public extension UIResponder  {
-    
+
     public func stimulate<E: Event>(event: E) -> E.Responder? {
         if let responder = stimulateResponder(event) {
             event.stimulate(responder)
@@ -113,7 +113,7 @@ public extension UIResponder  {
         }
         return nil
     }
-    
+
     public func stimulateResponder<E: Event>(event: E) -> E.Responder? {
         var responder : UIResponder? = self
         while (responder != nil) {
@@ -124,9 +124,8 @@ public extension UIResponder  {
         }
         return nil
     }
-    
+
 }
 ```
 
 レスポンダチェーンを辿って行って、指定の型のレスポンダが見つかれば`Event.stimulate`で適当なメソッドを呼びだすという感じです。
-

@@ -36,7 +36,7 @@ HTTP通信で`NSURLRequestUseProtocolCachePolicy`が設定されている場合�
 	+ されていなければ(=304なら)キャッシュを読みに行く
 
 + 再検証の必要があるかどうか示されていない場合は`max-age`とか`Expires`の値をチェックして、
-	+ 期限内ならキャッシュを読みに行く 
+	+ 期限内ならキャッシュを読みに行く
 	+ staleだったらHEADメソッドで条件つきリクエストを投げる
 		+ 変更されていれば originating sourceからデータをフェッチする
 		+ されていなければ(=304なら)キャッシュを読みに行く
@@ -58,7 +58,7 @@ SDWebImageは独自のキャッシュ機構を持っているいるので、そ�
 
 `SDWebImageManager`の`downloadImageWithURL:options:progress:completed:`で、まずディスクキャッシュを確認しています。
 
-```
+```objective_c
 operation.cacheOperation = [self.imageCache queryDiskCacheForKey:key done:^(UIImage *image, SDImageCacheType cacheType) {
 
 ...
@@ -71,7 +71,7 @@ operation.cacheOperation = [self.imageCache queryDiskCacheForKey:key done:^(UIIm
 上記のdoneブロック内で`SDWebImageDownloader`を使ってダウンロードが行われます。
 この時とくにoptionは指定されずにダウンロードが開始されるので`NSURLRequestReloadIgnoringLocalCacheData`が利用されるようです。
 
-```
+```objective_c
 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:(options & SDWebImageDownloaderUseNSURLCache ? NSURLRequestUseProtocolCachePolicy : NSURLRequestReloadIgnoringLocalCacheData) timeoutInterval:timeoutInterval];
 ```
 
@@ -81,7 +81,7 @@ NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cach
 
 `SDWebImageRefreshCached`というオプションが指定されてる場合はディスクキャッシュがあってもHTTPのレスポンスを優先し、ディスクキャッシュを上書きします。
 
-```
+```objective_c
  /**
   * Even if the image is cached, respect the HTTP response cache control, and refresh the image from remote location if needed.
  * The disk caching will be handled by NSURLCache instead of SDWebImage leading to slight performance degradation.
@@ -95,13 +95,13 @@ NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cach
 
 先ほどのdoneブロック内で`SDWebImageDownloader`クラスに渡すオプションに`SDWebImageDownloaderUseNSURLCache`を追加しています。
 
-```
+```objective_c
 if (options & SDWebImageRefreshCached) downloaderOptions |= SDWebImageDownloaderUseNSURLCache;
 ```
 
 このオプションが指定されているとキャッシュポリシーに`NSURLRequestUseProtocolCachePolicy`が指定されるのでHTTPのキャッシュを使うことになります。
 
-```
+```objective_c
 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:(options & SDWebImageDownloaderUseNSURLCache ? NSURLRequestUseProtocolCachePolicy : NSURLRequestReloadIgnoringLocalCacheData) timeoutInterval:timeoutInterval];
 ```
 
@@ -111,7 +111,7 @@ NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cach
 `http://hogehoge.com/img/fuga.jpg?v=12345`のようにキャッシュ制御のためのパラメータが付いている場合がありますが、
 SDWebImageは基本的には`absoluteString`(パラメータも含まれます)をキーとしてキャッシュを保存しています。
 
-```
+```objective_c
 - (NSString *)cacheKeyForURL:(NSURL *)url {
     if (self.cacheKeyFilter) {
         return self.cacheKeyFilter(url);

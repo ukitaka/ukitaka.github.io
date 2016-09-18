@@ -6,7 +6,7 @@ title: ライブラリメモ 「AAWindow」
 githubのswift, objcのトレンドに入っているライブラリを読んで気になるところをメモしていこうと思います。
 
 
-## AAWindow 
+## AAWindow
 
 [https://github.com/aaronabentheuer/AAWindow.git](https://github.com/aaronabentheuer/AAWindow.git)
 
@@ -26,7 +26,7 @@ READMEにも書いてありますが、Instagramが出している[Hyperlapse](h
 
 角丸にする事自体は特に難しくなく、こんな感じで
 
-```
+```swift
 var window: UIWindow? = {
     let window = UIWindow(frame: UIScreen.mainScreen().bounds)
     window.layer.cornerRadius = 8
@@ -43,7 +43,7 @@ UIWindowのlayerに`cornerRadius`を設定してあげればできるのです�
 
 実装も細かい制御をのぞけばシンプルで`UIApplicationWillResignActiveNotification`,`UIApplicationDidBecomeActiveNotification`を拾って再設定しているだけです。
 
-```
+```swift
 @objc private func applicationWillResignActive (notification : NSNotification) {
       ...
      self.layer.cornerRadius = inactiveCornerRadius
@@ -51,7 +51,7 @@ UIWindowのlayerに`cornerRadius`を設定してあげればできるのです�
 }
 ```
 
-```
+```swift
 @objc private func applicationDidBecomeActive (notification : NSNotification) {
 	...
      self.layer.cornerRadius = activeCornerRadius
@@ -66,7 +66,7 @@ UIWindowのlayerに`cornerRadius`を設定してあげればできるのです�
 
 AAWindowではこれを区別できるようになっていて、コントロールセンター用のNotificationが用意されています。
 
-```
+```swift
 //This notification will fire when the user opens Control Center.
 private var applicationWillResignActiveWithControlCenterNotification = NSNotification(name: "applicationWillResignActiveWithControlCenter", object: nil)
 
@@ -84,11 +84,11 @@ private var applicationWillResignActiveWithoutControlCenterNotification = NSNoti
 実際の実装はかなりゴリゴリで、まずタッチ座標を取得して画面の下部10%にあるかどうかを判定して、そうであればフラグをたてておきます。
 
 
-```
+```swift
 if (touch.phase == UITouchPhase.Began && touch.locationInView(self).y - self.frame.height * 0.9 >= 0) {
     //willOpenControlCenter is true for a short period of time when the user touches in the bottom area of the screen. If in this period of time "applicationWillResignActive" is called it's highly likely (basically certain) that the user has launched Control Center.
     willOpenControlCenter = true
-                    
+
     ...
 ```
 
@@ -98,7 +98,7 @@ if (touch.phase == UITouchPhase.Began && touch.locationInView(self).y - self.fra
 
 この**一定の秒数**を決める部分の実装が少し参考になったのですが、ステータスバーが隠れている状態(=フルスクリーン)だと、コントロールセンターは1度目の操作で少しだけ出てきて、2回目の操作で完全に表示されるという挙動をします。
 
-```
+```swift
 //If the Statusbar is hidden (which means the app is in full-screen mode) the timerInterval has to be longer since it will take the user a maximum amount of ~3 seconds to open Control Center since he has to use the little handle coming up from the bottom.
 var timerInterval : Double = {
 	if (UIApplication.sharedApplication().statusBarHidden) {
@@ -121,6 +121,3 @@ var timerInterval : Double = {
 + UIWindow上のすべてのタッチイベントを拾っているので、それなりに重くなりそうな気はします。(きちんと計測はしてないですが..)
 
 + 音楽や動画などのアプリでは、「コントロールセンターを開くときには再生を止めたくない」のような要望はあると思うのでコントロールセンター表示のイベントを拾えるのはなかなかうれしい
-
-
-
