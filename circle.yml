@@ -2,6 +2,9 @@ machine:
   ruby:
     version: 2.3.0
 
+dependencies:
+  override:
+
 deployment:
   deploy:
     branch: blog
