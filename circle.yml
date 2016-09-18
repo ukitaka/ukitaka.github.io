@@ -14,9 +14,10 @@ deployment:
   deploy:
     branch: blog
     commands:
-      - ruby ./_scripts/build.rb
       - git config --global user.email "yuki.takahashi.1126@gmail.com"
       - git config --global user.name "ukitaka" 
+      - git pull origin master
+      - ruby ./_scripts/build.rb
       - git add . 
       - git commit -m "post from CircleCI"
       - git push -f origin blog:master
