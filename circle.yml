@@ -1,0 +1,12 @@
+machine:
+  ruby:
+    version: 2.3.0
+
+deployment:
+  deploy:
+    branch: blog
+    commands:
+      - ruby ./_scripts/build.rb
+      - git add . 
+      - git commit -m "post from CircleCI"
+      - git push -f origin blog:master
