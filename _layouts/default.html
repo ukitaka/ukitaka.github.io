@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
 
   <body>
@@ -34,18 +33,18 @@
       </div>
     </div>
 
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
+    <div class="page-content">
+      <div class="wrap">
+        <div class="post">
+          <article class="post-content">
 
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
+            {{ content }}
+
+          </article>
+        </div>
       </div>
     </div>
 
     {% include analytics.html %}
   </body>
-</html>
+  </html>

@@ -4,15 +4,21 @@ layout: default
 
 <div class="posts">
   {% for post in site.posts %}
-    <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+  <div class="wrap">
+    <div class="post">
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
+      <header class="post-header">
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">
+          <h4>{{ post.title }}</h4>
+        </a>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
+        <p class="meta">{{ post.date | date: "%B %e, %Y" }}</p>
+      </header>
+    </div>
+  </div>
+
+  <hr>
+
   {% endfor %}
 </div>

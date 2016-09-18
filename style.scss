@@ -1,289 +1,468 @@
----
----
+/* Base */
+/* ----------------------------------------------------------*/
 
-//
-// IMPORTS
-//
-
-@import "reset";
-@import "variables";
-// Syntax highlighting @import is at the bottom of this file
-
-/**************/
-/* BASE RULES */
-/**************/
-
-html {
-  font-size: 100%;
+* {
+  margin: 0;
+  padding: 0;
 }
+
+html, body { height: 100%; }
 
 body {
-	background: $white;
-  font: 18px/1.4 $helvetica;
-  color: $darkGray;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: #313131;
+  /* background-color: #fdfdfd; */
 }
 
-.container {
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 0 10px;
-  width: 100%;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
-  color: $darkerGray;
-  font-weight: bold;
-
-  line-height: 1.7;
-  margin: 1em 0 15px;
-  padding: 0;
-
-  @include mobile {
-    line-height: 1.4;
-  }
-}
-
-h1 {
-  font-size: 30px;
-  a {
-    color: inherit;
-  }
+/*
+h1, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: 400;
+  color: #515151;
 }
 
 h2 {
-  font-size: 24px;
+  padding-bottom: 0.3em;
+  font-size: 100%;
+  font-weight: 400;
+  color: #515151;
+  border-bottom: 1px solid #eee;
 }
+    */
+
+table {
+    padding: 0;border-collapse: collapse; }
+table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+table tr:nth-child(2n) {
+    background-color: #f8f8f8; }
+table tr th {
+    font-weight: bold;
+    border: 1px solid #cccccc;
+    margin: 0;
+    padding: 6px 13px; }
+table tr td {
+    border: 1px solid #cccccc;
+    margin: 0;
+    padding: 6px 13px; }
+table tr th :first-child, table tr td :first-child {
+    margin-top: 0; }
+table tr th :last-child, table tr td :last-child {
+    margin-bottom: 0; }
+
+
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0 10px;
+    padding: 0;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    /* cursor: text; */
+    position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+    text-decoration: none; }
+
+h2 {
+    margin: 60px 0 10px !important;
+}
+
+h1 tt, h1 code {
+    font-size: inherit; }
+
+h2 tt, h2 code {
+    font-size: inherit; }
+
+h3 tt, h3 code {
+    font-size: inherit; }
+
+h4 tt, h4 code {
+    font-size: inherit; }
+
+h5 tt, h5 code {
+    font-size: inherit; }
+
+h6 tt, h6 code {
+    font-size: inherit; }
+
+h1 {
+    font-size: 28px;
+    color: black; }
+
+h2 {
+    font-size: 24px;
+    border-bottom: 1px solid #cccccc;
+    color: black; }
 
 h3 {
-  font-size: 20px;
-}
+    font-size: 18px; }
 
 h4 {
-  font-size: 18px;
-  color: $gray;
-}
+    font-size: 16px; }
 
-p {
-  margin: 15px 0;
-}
+h5 {
+    font-size: 14px; }
 
-a {
-  color: $blue;
-  text-decoration: none;
-	cursor: pointer;
-  &:hover, &:active {
-    color: $blue;
-  }
-}
+h6 {
+    color: #777777;
+    font-size: 14px; }
 
-ul, ol {
-  margin: 15px 0;
-  padding-left: 30px;
-}
 
-ul {
-  list-style-type: disc;
-}
-
-ol {
-  list-style-type: decimal;
-}
-
-ol ul, ul ol, ul ul, ol ol {
-  margin: 0;
-}
-
-ul ul, ol ul {
-  list-style-type: circle;
-}
-
-em, i {
-  font-style: italic;
-}
-
-strong, b {
-  font-weight: bold;
-}
+a         { color: #205caa; text-decoration: none; }
+a:hover   { color: #000; text-decoration: underline; }
+a:visited { color: #205caa; }
 
 img {
-  max-width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0px;
 }
 
-// Fixes images in popup boxes from Google Translate
-.gmnoprint img {
-  max-width: none;
+/* Utility */
+
+.wrap:before,
+.wrap:after {
+    content:"";
+    /* display:table; */
 }
-
-.date {
-  font-style: italic;
-  color: $gray;
-}
-
-// Specify the color of the selection
-::-moz-selection {
-  color: $black;
-  background: $lightGray;
-}
-::selection {
-  color: $black;
-  background: $lightGray;
-}
-
-// Nicolas Gallagher's micro clearfix hack
-// http://nicolasgallagher.com/micro-clearfix-hack/
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-/*********************/
-/* LAYOUT / SECTIONS */
-/*********************/
-
-//
-// .masthead
-//
-
-.wrapper-masthead {
-  margin-bottom: 50px;
-}
-
-.masthead {
-  padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
-
-  @include mobile {
-    text-align: center;
-  }
-}
-
-.site-avatar {
-  float: left;
-  width: 70px;
-  height: 70px;
-  margin-right: 15px;
-
-  @include mobile {
-    float: none;
-    display: block;
+.wrap:after { clear: both; }
+.wrap {
+    max-width: 720px;
+    padding: 0 30px;
     margin: 0 auto;
-  }
-
-  img {
-    border-radius: 5px;
-  }
+    zoom: 1;
 }
 
-.site-info {
-  float: left;
 
-  @include mobile {
-    float: none;
+/* Layout Styles */
+/* ----------------------------------------------------------*/
+
+/* Site header */
+
+.site-header {
+    min-height: 56px;
+    background-color: white;
+}
+
+.site-title,
+.site-title:hover,
+.site-title:visited {
     display: block;
-    margin: 0 auto;
-  }
+    color: #cacaca;
+    font-size: 20px;
+    float: left;
+    position: relative;
+    top: 13px;
+    z-index: 1;
 }
 
-.site-name {
-  margin: 0;
-  color: $darkGray;
-  cursor: pointer;
-  font-family: $helveticaNeue;
-  font-weight: 300;
-  font-size: 28px;
-  letter-spacing: 1px;
+.site-nav {
+    float: right;
+    line-height: 56px;
 }
 
-.site-description {
-  margin: -5px 0 0 0;
-  color: $gray;
-  font-size: 16px;
+.site-nav .menu-icon { display: none; }
 
-  @include mobile {
-    margin: 3px 0;
-  }
-}
-
-nav {
-  float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
-  font-size: 18px;
-
-  @include mobile {
-    float: none;
-    margin-top: 9px;
-    display: block;
-    font-size: 16px;
-  }
-
-  a {
+.site-nav .page-link {
     margin-left: 20px;
-    color: $darkGray;
+    color: #727272;
+}
+
+.github-icon-svg,
+.twitter-icon-svg {
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+  position: relative;
+  top: 17px;
+  left: 10px;
+}
+
+.rss-icon-svg {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  position: relative;
+  top: 16px;
+  left: 13px;
+}
+
+
+/* Page Content styles */
+/* ----------------------------------------------------------*/
+
+.page-content {
+  padding: 0;
+  background-color: #fff;
+}
+
+
+/* Home styles */
+/* ----------------------------------------------------------*/
+
+.home h1 { margin-bottom: 25px; }
+
+.posts { list-style-type: none; }
+
+.posts li { margin-bottom: 30px; }
+
+.posts .post-link {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.posts .post-date {
+  display: block;
+  font-size: 12px;
+  color: #818181;
+}
+
+
+/* Post styles */
+/* ----------------------------------------------------------*/
+
+.post-header { margin: 10px 0 30px; }
+
+.post-header h1 {
+  font-size: 37px;
+  line-height: 1.1;
+  font-weight: 300;
+  margin-left: -2px;
+}
+
+.post-header .meta {
+  font-size: 12px;
+  color: #818181;
+  margin-top: 5px;
+  margin-left: 1px;
+}
+
+.post-content { margin: 0 0 30px; word-wrap: break-word; }
+
+.post-content > * { margin: 20px 0; }
+
+.post-footer { margin: 60px 0 0; }
+
+/*
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  line-height: 1;
+  font-weight: 300;
+  margin: 20px 0 20px;
+}
+
+.post-content h2 {
+  font-size: 32px;
+}
+
+.post-content h3 {
+  font-size: 26px;
+}
+
+.post-content h4 {
+  font-size: 20px;
+}
+    */
+
+.post-content blockquote {
+  border-left: 4px solid #e8e8e8;
+  padding-left: 20px;
+  font-size: 14px;
+  opacity: .6;
+  font-style: italic;
+  margin: 30px 0;
+  line-height: 2;
+}
+
+.post-content ul,
+.post-content ol { padding-left: 20px; }
+
+.post pre,
+.post code {
+  border: 1px solid #d5d5e9;
+  padding: 8px 12px;
+  font-size: 12px;
+  overflow:scroll;
+  word-wrap: normal;
+  background: #f0f0f0;
+}
+
+.post code {
+  padding: 1px 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.post ul,
+.post ol { margin-left: 1.35em; }
+
+.post pre code {
+  font-family: "Menlo", Consolas, 'Courier New', Courier, Monaco, monospace;
+  border: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* terminal */
+.post pre.terminal {
+  border: 1px solid #000;
+  background-color: #333;
+  color: #FFF;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.post pre.terminal code { background-color: #333; }
+
+/* Syntax highlighting styles */
+/* ----------------------------------------------------------*/
+
+/* .highlight { background-color: #052b35; color: #93a1a1 } */
+/* .highlight { background-color: #09303b; color: #93a1a1 } */
+/* .highlight { background-color: #080301; color: #D8E2E9 } */
+.highlight { background-color: #f0f0f0; color: #D8E2E9 }
+.highlight .hll{background-color:#e5e5e5}
+.highlight .c{color:#586e75;font-style:italic}
+.highlight .g{color:#d33682}
+.highlight .k{color:#859900}
+.highlight .l{color:#2aa198}
+.highlight .n{color:#268bd2}
+.highlight .cm,
+.highlight .cp,
+.highlight .c1,
+.highlight .cs{color:#586e75;font-style:italic}
+.highlight .gd,
+.highlight .ge,
+.highlight .gr,
+.highlight .gh,
+.highlight .gi,
+.highlight .go,
+.highlight .gp,
+.highlight .gs,
+.highlight .gu,
+.highlight .gt{color:#d33682}
+.highlight .kc{color:#859900}
+.highlight .kd{color:#859900}
+.highlight .kn{color:#dc322f}
+.highlight .kp,
+.highlight .kr{color:#859900}
+.highlight .kt{color:#859900}
+.highlight .ld{color:#2aa198}
+.highlight .m{color:#2aa198}
+.highlight .s{color:#2aa198}
+.highlight .na{color:#268bd2}
+.highlight .nb,
+.highlight .nc{color:#cb4b16}
+.highlight .no,
+.highlight .nd,
+.highlight .ni,
+.highlight .ne,
+.highlight .nf,
+.highlight .nl,
+.highlight .nn,
+.highlight .nx,
+.highlight .py{color:#268bd2}
+.highlight .nt{color:#268bd2}
+.highlight .nv{color:#268bd2}
+.highlight .ow{color:#859900}
+.highlight .w{color:#586e75}
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo{color:#2aa198}
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s2,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr,
+.highlight .s1,
+.highlight .ss{color:#2aa198}
+.highlight .bp{color:#268bd2}
+.highlight .vc,
+.highlight .vg,
+.highlight .vi{color:#268bd2}
+.highlight .il{color:#2aa198}
+
+/* media queries */
+/* ----------------------------------------------------------*/
+
+
+@media screen and (max-width: 600px) {
+
+  .wrap { padding: 0 12px; }
+
+  .site-nav {
+    position: fixed;
+    z-index: 10;
+    top: 14px; right: 8px;
+    background-color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #e8e8e8;
+  }
+
+  .site-nav .trigger {
+    clear: both;
+    margin-bottom: 5px;
+    display: none;
+  }
+
+  .site-nav:hover .trigger { display: block; }
+
+  .site-nav .page-link {
+    display: block;
     text-align: right;
-    font-weight: 300;
-    letter-spacing: 1px;
-
-    @include mobile {
-      margin: 0 10px;
-      color: $blue;
-    }
-  }
-}
-
-//
-// .main
-//
-
-.posts > .post {
-  padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
-}
-
-.posts > .post:last-child {
-  padding-bottom: 1em;
-  border-bottom: none;
-}
-
-.post {
-  blockquote {
-    margin: 1.8em .8em;
-    border-left: 2px solid $gray;
-    padding: 0.1em 1em;
-    color: $gray;
-    font-size: 22px;
-    font-style: italic;
+    line-height: 1.25;
+    padding: 5px 10px;
+    margin: 0;
   }
 
-  .comments {
-    margin-top: 10px;
-  }
+  .post-header h1 { font-size: 36px; word-break: break-all; }
+  .post-content h2 { font-size: 28px; }
+  .post-content h3 { font-size: 22px; }
+  .post-content h4 { font-size: 18px; }
+  .post-content blockquote { padding-left: 10px; }
+  .post-content ul,
+  .post-content ol { padding-left: 10px; }
 
-  .read-more {
-    text-transform: uppercase;
-    font-size: 15px;
-  }
 }
 
-.wrapper-footer {
-  margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #EEE;
 }
 
-footer {
-  padding: 20px 0;
-  text-align: center;
+.read-more {
+    border-bottom: 1px solid #EDEDED;
 }
 
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
-@import "highlights";
-@import "svg-icons";
+img.profile-image {
+    vertical-align: middle;
+    margin: 0px;
+    margin-left: 20px;
+    width: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+}
