@@ -14,4 +14,4 @@ deployment:
       - ruby ./_scripts/build.rb
       - git add . 
       - git commit -m "[ci skip]"
-      - git push -f origin blog:master
+      - git push -f origin master
