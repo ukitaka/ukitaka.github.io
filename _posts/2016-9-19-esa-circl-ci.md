@@ -1,14 +1,4 @@
 ---
-title: "2016-9-19-esa-circl-ci.md"
-category: 
-tags: 
-created_at: 2016-09-19 13:02:15 +0900
-updated_at: 2016-09-19 13:02:15 +0900
-published: true
-number: 45
----
-
----
 layout: post
 title: Jekyll Nowにesa.ioからPOSTする
 ---
