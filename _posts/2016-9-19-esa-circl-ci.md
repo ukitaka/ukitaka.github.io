@@ -43,8 +43,8 @@ title: Jekyll Nowにesa.ioからPOSTする
 みたいにしました。
 細かい設定は `circle.yml` や `_script/build.rb`などを参考にしてください。
 
-+ https://github.com/ukitaka/ukitaka.github.io/blob/master/circle.yml
-+ https://github.com/ukitaka/ukitaka.github.io/blob/master/_scripts/build.rb
++ [circle.yml](https://github.com/ukitaka/ukitaka.github.io/blob/master/circle.yml)
++ [build.rb](https://github.com/ukitaka/ukitaka.github.io/blob/master/_scripts/build.rb)
 
 (めっちゃ雑なコードですが)
 
@@ -52,6 +52,9 @@ title: Jekyll Nowにesa.ioからPOSTする
 
 CircleCIのビルドをスキップするにはコミットメッセージに `[skip ci]` とか `[ci skip]` とか書くといいっぽいです。
 
-https://circleci.com/docs/skip-a-build/
+[https://circleci.com/docs/skip-a-build/](https://circleci.com/docs/skip-a-build/)
 
 いまの設定だと設定ファイルの変更をしただけとかでもCI動いてしまうので、必要ないときはスキップするようにしてます。
+
+
+あと、esaと違って自動リンクにはしてくれないのでちゃんと`[リンク名](URL)`の形式でリンクを書くようにしましょう。
