@@ -5,7 +5,7 @@ title: DockerでMySQLクライアントを動かす
 
 サーバーとしてではなくて`mysql` コマンドを使いたいとき。
 
-```bash
+```shell
 docker run -it --rm mysql mysql -hsome.mysql.host -usome-mysql-user -p
 ```
 
