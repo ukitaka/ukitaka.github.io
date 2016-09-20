@@ -1,14 +1,4 @@
 ---
-title: "2016-9-21-docker-mysql-client.md"
-category: 
-tags: 
-created_at: 2016-09-21 01:47:44 +0900
-updated_at: 2016-09-21 01:47:44 +0900
-published: true
-number: 48
----
-
----
 layout: post
 title: DockerでMySQLクライアントを動かす
 ---
