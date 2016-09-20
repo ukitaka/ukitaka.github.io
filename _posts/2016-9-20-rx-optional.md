@@ -1,14 +1,4 @@
 ---
-title: "2016-9-20-rx-optional.md"
-category: blog
-tags: 
-created_at: 2016-09-20 23:16:04 +0900
-updated_at: 2016-09-20 23:16:04 +0900
-published: true
-number: 47
----
-
----
 layout: post
 title: RxSwiftでnilをフィルタリングする
 ---
