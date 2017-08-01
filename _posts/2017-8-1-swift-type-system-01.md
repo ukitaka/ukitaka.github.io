@@ -1,14 +1,4 @@
 ---
-title: "2017-8-1-swift-type-system-01.md"
-category: 
-tags: 
-created_at: 2017-08-01 10:39:35 +0900
-updated_at: 2017-08-01 10:39:35 +0900
-published: true
-number: 90
----
-
----
 layout: post
 title: Swiftの型システムを読む その1
 ---
