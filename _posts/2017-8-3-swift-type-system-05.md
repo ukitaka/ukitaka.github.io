@@ -1,14 +1,4 @@
 ---
-title: "2017-8-3-swift-type-system-05.md"
-category: 
-tags: 
-created_at: 2017-08-03 11:09:25 +0900
-updated_at: 2017-08-03 11:09:37 +0900
-published: true
-number: 94
----
-
----
 layout: post
 title: Swiftの型システムを読む その5
 ---
