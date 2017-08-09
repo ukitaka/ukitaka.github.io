@@ -1,14 +1,4 @@
 ---
-title: "2017-8-9-law-of-excluded-middle.md"
-category: 
-tags: 
-created_at: 2017-08-09 15:25:22 +0900
-updated_at: 2017-08-09 15:25:22 +0900
-published: true
-number: 96
----
-
----
 layout: post
 title: 命題論理の公理系LPにおける排中律の証明
 ---
