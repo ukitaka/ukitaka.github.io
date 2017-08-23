@@ -1,14 +1,4 @@
 ---
-title: "2017-8-23-rust-method-ref.md"
-category: 
-tags: 
-created_at: 2017-08-23 14:36:06 +0900
-updated_at: 2017-08-23 14:36:06 +0900
-published: true
-number: 97
----
-
----
 layout: post
 title: Rustのメソッド構文と参照について
 ---
