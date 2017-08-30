@@ -1,14 +1,4 @@
 ---
-title: "2017-8-30-lldb-disas.md"
-category: 
-tags: 
-created_at: 2017-08-30 13:59:50 +0900
-updated_at: 2017-08-30 13:59:50 +0900
-published: true
-number: 98
----
-
----
 layout: post
 title: lldbで逆アセンブル結果を見る
 ---
