@@ -1,14 +1,4 @@
 ---
-title: "2017-9-1-rust-pub.md"
-category: 
-tags: 
-created_at: 2017-09-01 21:10:24 +0900
-updated_at: 2017-09-01 21:10:24 +0900
-published: true
-number: 100
----
-
----
 layout: post
 title: Rustのpubについて
 ---
