@@ -1,14 +1,4 @@
 ---
-title: "2017-9-4-rust-slice-vec.md"
-category: 
-tags: 
-created_at: 2017-09-04 21:39:19 +0900
-updated_at: 2017-09-04 21:39:19 +0900
-published: true
-number: 102
----
-
----
 layout: post
 title: RustのスライスとVecと型強制
 ---
