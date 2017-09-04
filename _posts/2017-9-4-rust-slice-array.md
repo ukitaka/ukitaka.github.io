@@ -35,7 +35,7 @@ let slice_a: &[i32] = &a;
 
 Scalaでいうところのimplicit conversionのようなものみたい。
 
-Rustには[4つの型強制ルール](https://doc.rust-lang.org/nomicon/coercions.html)があって、それに従う。`Deref` と `Unsize` を利用して必要に応じて自前で型強制を定義できるっぽい。
+Rustには[4つの型強制ルール](https://doc.rust-lang.org/nomicon/coercions.html)があって、それに従う。`Deref` を利用して必要に応じて自前で型強制を定義できるっぽい。
 
 そして、参照の場合( `&[i32; 3]` -> `&[i32]` ) が動作したのは型強制のおかげらしい。
 
