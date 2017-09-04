@@ -1,14 +1,4 @@
 ---
-title: "2017-9-4-rust-slice-array.md"
-category: 
-tags: 
-created_at: 2017-09-04 17:40:55 +0900
-updated_at: 2017-09-04 17:40:55 +0900
-published: true
-number: 101
----
-
----
 layout: post
 title: Rustのスライスと配列と型強制
 ---
