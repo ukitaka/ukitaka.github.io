@@ -1,14 +1,4 @@
 ---
-title: "2017-9-7-sss-web-server.md"
-category: 
-tags: 
-created_at: 2017-09-07 21:45:54 +0900
-updated_at: 2017-09-07 21:45:54 +0900
-published: true
-number: 103
----
-
----
 layout: post
 title: SwiftでのWebサーバー実装 2017年9月
 ---
