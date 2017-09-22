@@ -1,14 +1,4 @@
 ---
-title: "2017-9-22-region-based-01.md"
-category: 
-tags: 
-created_at: 2017-09-22 23:56:46 +0900
-updated_at: 2017-09-22 23:56:46 +0900
-published: true
-number: 104
----
-
----
 layout: post
 title:  Region-Based Memory Management in Cyclone を読んだ その1
 ---
