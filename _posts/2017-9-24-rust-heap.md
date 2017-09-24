@@ -1,14 +1,4 @@
 ---
-title: "2017-9-24-rust-heap.md"
-category: 
-tags: 
-created_at: 2017-09-24 12:55:19 +0900
-updated_at: 2017-09-24 12:55:19 +0900
-published: true
-number: 107
----
-
----
 layout: post
 title:  RustはGCなしでどうやってヒープを管理しているかのメモ
 ---
