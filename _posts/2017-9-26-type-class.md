@@ -1,14 +1,4 @@
 ---
-title: "2017-9-26-type-class.md"
-category: 
-tags: 
-created_at: 2017-09-26 18:00:35 +0900
-updated_at: 2017-09-26 18:00:36 +0900
-published: true
-number: 108
----
-
----
 layout: post
 title: How to make ad-hoc polymorphism less ad hoc を読んだ
 ---
