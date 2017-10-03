@@ -1,14 +1,4 @@
 ---
-title: "2017-10-3-let-polymorphism.md"
-category: 
-tags: 
-created_at: 2017-10-03 21:57:05 +0900
-updated_at: 2017-10-03 21:57:05 +0900
-published: true
-number: 109
----
-
----
 layout: post
 title: let多相についてのメモ
 ---
