@@ -18,7 +18,7 @@ html {
 body {
   height: 100%;
   font-family: "Lato", Arial, "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.6;
   font-weight: 300;
   color: #6f7277;
@@ -289,7 +289,7 @@ img {
   margin: 10px 0 30px;
   h1 {
     font-size: 37px;
-    line-height: 1.1;
+    line-height: 1.6;
     font-weight: 300;
     margin-left: -2px;
   }
@@ -305,7 +305,7 @@ img {
   margin: 0 0 30px;
   word-wrap: break-word;
   > * {
-    margin: 20px 0;
+    margin: 20px 0 40px;
   }
 }
 
