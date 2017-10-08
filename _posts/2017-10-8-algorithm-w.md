@@ -1,14 +1,4 @@
 ---
-title: "2017-10-8-algorithm-w.md"
-category: 
-tags: 
-created_at: 2017-10-09 00:20:56 +0900
-updated_at: 2017-10-09 00:20:56 +0900
-published: true
-number: 111
----
-
----
 layout: post
 title:  Algorithm W Step By Stepを読んだ & 実装した
 ---
