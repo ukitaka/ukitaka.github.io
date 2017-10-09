@@ -1,14 +1,4 @@
 ---
-title: "2017-10-9-swift4-hashable.md"
-category: 
-tags: 
-created_at: 2017-10-09 21:02:41 +0900
-updated_at: 2017-10-09 21:02:41 +0900
-published: true
-number: 112
----
-
----
 layout: post
 title:  Swift4.0でのTypeCheckerのバグを見つけたけどもう修正されてたメモ
 ---
