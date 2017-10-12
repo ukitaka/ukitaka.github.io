@@ -1,14 +1,4 @@
 ---
-title: "2017-10-12-spm-multi-target.md"
-category: 
-tags: 
-created_at: 2017-10-12 23:14:33 +0900
-updated_at: 2017-10-12 23:14:33 +0900
-published: true
-number: 113
----
-
----
 layout: post
 title:  Swift Package Managerでマルチターゲットな構成を作る
 ---
