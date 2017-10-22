@@ -1,14 +1,4 @@
 ---
-title: "2017-10-22-a-theory-of-type-poly.md"
-category: 
-tags: 
-created_at: 2017-10-22 14:34:07 +0900
-updated_at: 2017-10-22 14:34:07 +0900
-published: true
-number: 114
----
-
----
 layout: post
 title:  A Theory of Type Polymorphism (Robin Milner 1978)を 実装した その1
 ---
