@@ -90,7 +90,7 @@ $ swift -frontend -typecheck -debug-constraints test_poly.swift
   (overload set choice binding $T3 := ($T4) -> $T4)
 ``` 
 
-右辺のタプルについてのASTの出力をみると、二つの `declrec_expr` について、別々の(フレッシュな)型変数 `$T1` と `$T2` が割り当てられてることが確認できる。
+右辺のタプルについてのASTの出力をみると、二つの `declrec_expr` について、別々の(フレッシュな)型変数 `$T1` と `$T4` が割り当てられてることが確認できる。
 
 ```
 (declref_expr type='($T1) -> $T1'
@@ -107,7 +107,7 @@ Opened types:
 ```
 
 あとは同じように制約ソルバによって単一化される。
-型がつけられたASTは以下のようになる。
+
 
 ```
 ($T2 literal=3 involves_type_vars bindings=(subtypes of) (default from ExpressibleByBooleanLiteral) Bool)
@@ -146,6 +146,25 @@ Type variables:
   $T6 as (Bool, String)
   $T3 as (String) -> String
   $T4 as String
+```
+
+型がつけられたASTは以下のようになる。
+
+```
+(tuple_expr type='(Bool, String)' location=test_poly.swift:3:9 range=[test_poly.swift:3:9 - line:3:31]
+  (call_expr type='Bool' location=test_poly.swift:3:10 range=[test_poly.swift:3:10 - line:3:17] arg_labels=_:
+    (declref_expr type='(Bool) -> Bool' location=test_poly.swift:3:10 range=[test_poly.swift:3:10 - line:3:10] decl=test_poly.(file).id@test_poly.swift:1:6 [with Bool] function_ref=single)
+    (paren_expr type='(Bool)' location=test_poly.swift:3:13 range=[test_poly.swift:3:12 - line:3:17]
+      (call_expr implicit type='Bool' location=test_poly.swift:3:13 range=[test_poly.swift:3:13 - line:3:13] arg_labels=_builtinBooleanLiteral:
+        (constructor_ref_call_expr implicit type='(Int1) -> Bool' location=test_poly.swift:3:13 range=[test_poly.swift:3:13 - line:3:13]
+          (declref_expr implicit type='(Bool.Type) -> (Int1) -> Bool' location=test_poly.swift:3:13 range=[test_poly.swift:3:13 - line:3:13] decl=Swift.(file).Bool.init(_builtinBooleanLiteral:) function_ref=single)
+          (type_expr implicit type='Bool.Type' location=test_poly.swift:3:13 range=[test_poly.swift:3:13 - line:3:13] typerepr='Bool'))
+        (tuple_expr implicit type='(_builtinBooleanLiteral: Builtin.Int1)' location=test_poly.swift:3:13 range=[test_poly.swift:3:13 - line:3:13] names=_builtinBooleanLiteral
+          (boolean_literal_expr type='Builtin.Int1' location=test_poly.swift:3:13 range=[test_poly.swift:3:13 - line:3:13] value=true)))))
+  (call_expr type='String' location=test_poly.swift:3:20 range=[test_poly.swift:3:20 - line:3:30] arg_labels=_:
+    (declref_expr type='(String) -> String' location=test_poly.swift:3:20 range=[test_poly.swift:3:20 - line:3:20] decl=test_poly.(file).id@test_poly.swift:1:6 [with String] function_ref=single)
+    (paren_expr type='(String)' location=test_poly.swift:3:23 range=[test_poly.swift:3:22 - line:3:30]
+      (string_literal_expr type='String' location=test_poly.swift:3:23 range=[test_poly.swift:3:23 - line:3:23] encoding=utf8 value="hello" builtin_initializer=Swift.(file).String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:) initializer=**NULL**))))
 ```
 
 ## まとめ
