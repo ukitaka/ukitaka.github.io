@@ -1,15 +1,4 @@
 ---
-title: "2017-10-22-swift-type-system-07md"
-category: 
-tags: 
-created_at: 2017-10-22 14:57:47 +0900
-updated_at: 2017-10-22 14:57:47 +0900
-published: true
-number: 115
----
-
-
----
 layout: post
 title:  Swiftの型システムを読む その7 - 多相な関数について
 ---
