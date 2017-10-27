@@ -1,14 +1,4 @@
 ---
-title: "2017-10-27-swift-type-system-08.md"
-category: 
-tags: 
-created_at: 2017-10-27 23:06:51 +0900
-updated_at: 2017-10-27 23:06:51 +0900
-published: true
-number: 116
----
-
----
 layout: post
 title:  Swiftの型システムを読む その8 - 存在型とprotocol
 ---
