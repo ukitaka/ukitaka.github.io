@@ -1,14 +1,4 @@
 ---
-title: "2017-11-02-rust-intellij-update.md"
-category: 
-tags: 
-created_at: 2017-11-02 18:05:18 +0900
-updated_at: 2017-11-02 18:05:18 +0900
-published: true
-number: 118
----
-
----
 layout: post
 title:  IntelliJでRustを書いているときにモジュールが更新された場合でも補完が効くようにする
 ---
