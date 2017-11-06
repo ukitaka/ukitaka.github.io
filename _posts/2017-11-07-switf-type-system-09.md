@@ -1,14 +1,4 @@
 ---
-title: "2017-11-07-switf-type-system-09.md"
-category: 
-tags: 
-created_at: 2017-11-07 00:18:59 +0900
-updated_at: 2017-11-07 00:18:59 +0900
-published: true
-number: 119
----
-
----
 layout: post
 title:  Swiftの型システムを読む その9 - unittestを使って動作確認する
 ---
