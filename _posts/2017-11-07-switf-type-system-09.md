@@ -124,7 +124,7 @@ $ ./utils/build-script -Rt
 差分ビルドが効けば手元のMacBook Pro(3.1GHzデュアルコアIntel Core i5)でも30秒かからずにビルドが終わる。
 
 ```
-% ls -la build/Ninja-ReleaseAssert/swift-macosx-x86_64/unittests/Sema/
+$ ls -la build/Ninja-ReleaseAssert/swift-macosx-x86_64/unittests/Sema/
 total 41352
 drwxr-xr-x   5 ukitaka  staff       160 11  7 00:04 ./
 drwxr-xr-x  15 ukitaka  staff       480 11  6 23:44 ../
@@ -136,7 +136,7 @@ drwxr-xr-x   3 ukitaka  staff        96 11  6 22:13 CMakeFiles/
 実行！
 
 ```
-% build/Ninja-ReleaseAssert/swift-macosx-x86_64/unittests/Sema/SwiftSemaTests
+$ build/Ninja-ReleaseAssert/swift-macosx-x86_64/unittests/Sema/SwiftSemaTests
 ```
 
 ```
@@ -153,6 +153,15 @@ drwxr-xr-x   3 ukitaka  staff        96 11  6 22:13 CMakeFiles/
 ```
 
 良さそう。
+
+## 追記: 単体テストのみビルドし直す方法
+
+出力をみてたら見つけたので追記。
+
+```
+$ cmake --build ../build/Ninja-ReleaseAssert/swift-macosx-x86_64 -- -j8 SwiftUnitTests
+```
+
 
 ## まとめ
 
