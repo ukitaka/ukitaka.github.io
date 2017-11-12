@@ -27,7 +27,7 @@ short paperなら二段組で4ページなのでさくっと読めた。
 
 ### 技術や手法のキモはどこ？
 
-space, subspace relation(≾)の導入と「パターンp1, p2, … が型Tを網羅している ⇔ 𝒯(T)  ≾  𝒫(p1) | 𝒫(p2) | …」という形式化。
+space, subspace relation(≾)の導入と「`パターンp1, p2, … が型Tを網羅している ⇔ 𝒯(T)  ≾  𝒫(p1) | 𝒫(p2) | …`」という形式化。
 
 subspace relation を space subtraction(⊖) によって定義したところ？
 
