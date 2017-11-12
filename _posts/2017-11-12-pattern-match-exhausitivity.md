@@ -1,14 +1,4 @@
 ---
-title: "2017-11-12-pattern-match-exhausitivity.md"
-category: 
-tags: 
-created_at: 2017-11-12 16:30:08 +0900
-updated_at: 2017-11-12 16:30:08 +0900
-published: true
-number: 120
----
-
----
 layout: post
 title:  A generic algorithm for checking exhaustivity of pattern matching を読んだ
 ---
