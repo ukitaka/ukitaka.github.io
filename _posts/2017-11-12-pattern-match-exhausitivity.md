@@ -65,7 +65,7 @@ Scalaのdottyに採用してissueが改善した。ソースコードが1/3程�
 𝒫(case (true, _)) = { (true, false), (true, true) }
 ```
 
-これにsubspace関係(≾) を導入する。
+これにSpace上の二項関係 ≾ (subspace関係) を導入する。
 
 `s1 ≾ s2`  ⇔ `s1 ⊖ s2 = 0`
 
