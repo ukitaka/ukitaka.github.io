@@ -1,9 +1,7 @@
 ---
 layout: post
-title:  A generic algorithm for checking exhaustivity of pattern matching を読んだ
+title:  Swiftの型システムを読む その10 - switch文の網羅チェック
 ---
-
-# Swiftの型システムを読む その10 - switch文の網羅チェック
 
 [前回の記事](https://blog.waft.me/2017/11/12/pattern-match-exhausitivity/)でSpaceを使った網羅チェックのアルゴリズムを見たので、今回はswiftコンパイラに置けるその実装を見てみる。
 
