@@ -27,8 +27,8 @@ Swiftのバージョンは4.0.2。
 /// condition is empty.
 ```
 
-	- [Liu, Fengyun 2016 - A generic algorithm for checking exhaustivity of pattern matching](https://infoscience.epfl.ch/record/225497)
-	- [L Maranget - Journal of Functional Programming, 2007 - Warnings for pattern matching](http://moscova.inria.fr/~maranget/papers/warn/index.html)
+- [Liu, Fengyun 2016 - A generic algorithm for checking exhaustivity of pattern matching](https://infoscience.epfl.ch/record/225497)
+- [L Maranget - Journal of Functional Programming, 2007 - Warnings for pattern matching](http://moscova.inria.fr/~maranget/papers/warn/index.html)
 
 
 ## 網羅チェックはいつ行われるか？
