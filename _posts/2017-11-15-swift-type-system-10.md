@@ -1,14 +1,4 @@
 ---
-title: "2017-11-15-swift-type-system-10.md"
-category: 
-tags: 
-created_at: 2017-11-15 22:33:18 +0900
-updated_at: 2017-11-15 22:33:18 +0900
-published: true
-number: 121
----
-
----
 layout: post
 title:  A generic algorithm for checking exhaustivity of pattern matching を読んだ
 ---
