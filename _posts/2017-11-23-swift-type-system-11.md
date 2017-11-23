@@ -1,14 +1,4 @@
 ---
-title: "2017-11-23-swift-type-system-11.md"
-category: 
-tags: 
-created_at: 2017-11-23 15:29:16 +0900
-updated_at: 2017-11-23 15:29:16 +0900
-published: true
-number: 123
----
-
----
 layout: post
 title:  Swiftの型システムを読む その11 - Typeクラス周辺のクラス図
 ---
