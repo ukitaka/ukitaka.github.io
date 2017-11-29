@@ -1,14 +1,4 @@
 ---
-title: "2017-11-29-swift-type-system-12.md"
-category: 
-tags: 
-created_at: 2017-11-29 17:56:26 +0900
-updated_at: 2017-11-29 17:56:26 +0900
-published: true
-number: 124
----
-
----
 layout: post
 title:  Swiftの型システムを読む その12 - LLDBによるデバッグ&オリジナルデバッグオプションとプリントデバッグ
 ---
