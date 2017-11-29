@@ -1,15 +1,4 @@
 ---
-title: "2017-11-29-swift-type-system-13.md"
-category: 
-tags: 
-created_at: 2017-11-29 18:47:14 +0900
-updated_at: 2017-11-29 18:47:15 +0900
-published: true
-number: 125
----
-
-
----
 layout: post
 title:  Swiftの型システムを読む その13 SwiftにおけるSubtype関係とCoercive subtyping
 ---
