@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Swiftの型システムを読む その14 例外を投げる関数と投げない関数のSubtype関係
+title:  Swiftの型システムを読む その14 - 例外を投げる関数と投げない関数のSubtype関係
 ---
 
 前回の続きというか、前回の記事で網羅できていなかったものを1件見つけたのでメモ。
@@ -179,7 +179,7 @@ Disjunction choices:
 
 `coerceToType`を読んで見る。
 前半は`ConversionRestrictionKind`にもとづいて行われる型強制についての処理が書かれている。
-その後にタプルや関数(つまり**構造的部分型**)に関する型強制が記述されている。`FunctionType` -> `FunctionType` の場合は無条件で`FunctionConversionExpr`が挿入されることがわかる。
+その後にタプルや関数(つまりNominalでない型？)に関する型強制が記述されている。`FunctionType` -> `FunctionType` の場合は無条件で`FunctionConversionExpr`が挿入されることがわかる。
 
 ```cpp
   // Coercions to function type.
@@ -253,4 +253,13 @@ ConstraintSystem::matchFunctionTypes(FunctionType *func1, FunctionType *func2,
 
 ## まとめ
 
-構造的部分型はrestrictionが使われず、coerceToTypeで無条件に型強制される。
+関数やタプルはrestrictionが使われず、coerceToTypeで無条件に型強制される。
+
+なんかタプルについても面白いルールがありそうなので今度調べる。
+
+```cpp
+  if (!computeTupleShuffle(fromTuple, toTuple, sources, variadicArgs)) {
+    return coerceTupleToTuple(expr, fromTuple, toTuple,
+                              locator, sources, variadicArgs);
+  }
+```
