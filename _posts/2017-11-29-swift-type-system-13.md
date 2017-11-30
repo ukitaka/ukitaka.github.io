@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Swiftの型システムを読む - その13 SwiftにおけるSubtype関係とCoercive subtyping
+title:  Swiftの型システムを読む その13 - SwiftにおけるSubtype関係とCoercive subtyping
 ---
 
 やっとSwiftのSubtypingについて少し理解が進んだのでメモ。
