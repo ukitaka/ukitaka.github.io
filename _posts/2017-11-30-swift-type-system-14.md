@@ -1,14 +1,4 @@
 ---
-title: "2017-11-30-swift-type-system-14.md"
-category: 
-tags: 
-created_at: 2017-11-30 22:52:40 +0900
-updated_at: 2017-11-30 22:52:40 +0900
-published: true
-number: 126
----
-
----
 layout: post
 title:  Swiftの型システムを読む その14 例外を投げる関数と投げない関数のSubtype関係
 ---
