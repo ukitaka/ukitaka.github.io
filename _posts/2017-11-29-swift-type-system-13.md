@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Swiftの型システムを読む その13 SwiftにおけるSubtype関係とCoercive subtyping
+title:  Swiftの型システムを読む - その13 SwiftにおけるSubtype関係とCoercive subtyping
 ---
 
 やっとSwiftのSubtypingについて少し理解が進んだのでメモ。
@@ -176,6 +176,11 @@ Expr *ExprRewriter::coerceExistential(Expr *expr, Type toType,
 }
 
 ```
+
+## 2017-11-30 追記
+
+よくよくTaPLを読むと15章の「型強制意味論」のところにまさにこの話が書いてありますね。
+今度読む。
 
 ## まとめ
 
