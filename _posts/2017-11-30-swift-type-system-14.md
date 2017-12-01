@@ -195,7 +195,7 @@ Disjunction choices:
   }
 ```
 
-つまり構造的部分型の場合はrestrictionが使われない、ということらしい。
+つまりNominalでない型の場合はrestrictionが使われない、ということらしい。
 
 - 参考 - [Swiftに息づくstructural types(構造的型) - Qiita](https://qiita.com/takasek/items/c15ef7ce5a00e65a4ad2)
 
