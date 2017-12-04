@@ -84,8 +84,7 @@ protocol MyProtocol {
 > An archetype is a type that represents a runtime type that is known to conform to some set of requirements. Archetypes are used to represent generic type parameters and their associated types, as well as the runtime type stored within an existential container.
 > 
 
-[https://github.com/apple/swift/blob/master/include/swift/AST/Types.h#L4220-L4226]
-(https://github.com/apple/swift/blob/master/include/swift/AST/Types.h#L4220-L4226)
+[https://github.com/apple/swift/blob/master/include/swift/AST/Types.h#L4220-L4226](https://github.com/apple/swift/blob/master/include/swift/AST/Types.h#L4220-L4226)
 
 >   archetype
 >    A placeholder for a generic parameter or an associated type within a
