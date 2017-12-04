@@ -21,7 +21,7 @@ class Hoge<A> { }
 enum Hoge<A> { }
 ```
 2. func
-```swif
+```swift
 func hoge<A>(a: A) -> A { }
 ```
 
@@ -37,7 +37,7 @@ let id: <A> (A) -> A = { a in a }
 
 ```swift
 protocol MyProtocol {
-	associatedtype T 
+  associatedtype T 
 }
 ```
 
@@ -83,15 +83,18 @@ protocol MyProtocol {
 
 > An archetype is a type that represents a runtime type that is known to conform to some set of requirements. Archetypes are used to represent generic type parameters and their associated types, as well as the runtime type stored within an existential container.
 > 
-> https://github.com/apple/swift/blob/master/include/swift/AST/Types.h#L4220-L4226
+
+[https://github.com/apple/swift/blob/master/include/swift/AST/Types.h#L4220-L4226]
+(https://github.com/apple/swift/blob/master/include/swift/AST/Types.h#L4220-L4226)
 
 >   archetype
 >    A placeholder for a generic parameter or an associated type within a
 >    generic context. Sometimes known as a "rigid type variable" in formal
 >    CS literature. Directly stores its conforming protocols and nested
 >    archetypes, if any.
-> 
-> https://github.com/apple/swift/blob/master/docs/Lexicon.rst
+
+ 
+[https://github.com/apple/swift/blob/master/docs/Lexicon.rst](https://github.com/apple/swift/blob/master/docs/Lexicon.rst)
 
 ざっくりいうと実行時に決まる型たち。struct/class/enum/func等、型パラメータを含みうる箇所**以外**で出てきた場合この型になる。
 例えば`struct Hoge<A>` のが`A`型のプロパティを持っているとき、この`A`は`ArtchetypeType`になる。
