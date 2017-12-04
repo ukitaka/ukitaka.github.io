@@ -1,14 +1,4 @@
 ---
-title: "2017-12-04-swift-type-system-15.md"
-category: 
-tags: 
-created_at: 2017-12-04 22:00:15 +0900
-updated_at: 2017-12-04 22:00:15 +0900
-published: true
-number: 128
----
-
----
 layout: post
 title:  Swiftの型システムを読む その15 - ArchetypeとGenericTypeParamTypeとDependentMemberType
 ---
