@@ -1,14 +1,4 @@
 ---
-title: "2017-12-12-swift-type-system-16.md"
-category: 
-tags: 
-created_at: 2017-12-12 23:19:38 +0900
-updated_at: 2017-12-12 23:19:38 +0900
-published: true
-number: 130
----
-
----
 layout: post
 title:  Swiftの型システムを読む その16 - MetatypeとSubtyping
 ---
