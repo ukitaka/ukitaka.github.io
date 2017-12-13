@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Swiftの型システムを読む その13 - SwiftにおけるSubtype関係とCoercive subtyping
+title:  Swiftの型システムを読む その13 - SwiftにおけるSubtype関係と型強制意味論
 ---
 
 やっとSwiftのSubtypingについて少し理解が進んだのでメモ。
@@ -49,11 +49,20 @@ TEST(Sema, Protocol) {
 }
 ```
 
-もう「サブタイピング」「暗黙変換」などがごっちゃになってわからなくなってきて改めてSubtypingについて調べているうちに、Subtypeの実装には`coercive`と`inclusive`な2種類あってSwiftは`coercive`(強制的)な実装を採用しているようだ、ということがわかってきて、それについて調べたらいろいろ辻褄があってスッキリした。
+さらには`CSSimplify.cpp`に決定的な記述を見つけた。 [参考](https://github.com/apple/swift/blob/master/lib/Sema/CSSimplify.cpp#L4382-L4383)
 
-読んでないけどこれとかが参考になりそうなのでメモ。
+```cpp
+// for $< in { <, <c, <oc }:
+//   T $< U ===> T $< U?
+```
 
-[Z Luo, S Soloviev, T Xue - Information and Computation, 2013 - Elsevier](http://www.sciencedirect.com/science/article/pii/S0890540112001757)
+もう「サブタイピング」「暗黙変換」などがごっちゃになってわからなくなってきて改めてSubtypingについて調べているうちに、
+
++ Subtypeの実装には`coercive`と`inclusive`な2種類あってSwiftは`coercive`(強制的)な実装を採用しているようだ
++ TaPLによるとSwiftのsubtypingは「型強制意味論」を採用しているようだ
+
+ということがわかってきて、それについて調べたらいろいろ辻褄があってスッキリした。
+
 
 ## coerciveなsubtypingの実装について
 
@@ -62,18 +71,6 @@ TEST(Sema, Protocol) {
 + Coersiveなsubtypingにおいて、部分型付けはsubtypeからsupertypeへの暗黙の型変換によって定義される。これを型強制(Type coercion)と呼ぶ。
 + すべてのsubtype関係`S <: T`について型強制`S -> T`が提供される
 + 意味解析時に型強制が自動で挿入される。
-
-## Swiftにおける”subtyping” について
-
-基本的には上記の通り実装されているが、いくつか知っておくべきポイントがある。
-
-Swiftでよく使われる型上の二項関係が2つある。
-doc/TypeChecker.rstの記号のまま書くと
-
-+ subtype関係を表す `<` 
-+ conversion関係を表す `<c` 
-
-conversion関係はsubtype関係を含んでいて、加えてuser-definedな変換を適用できると書いてある。ただ実際これらを区別して使うことはあんまりなさそう？(自信なし)なので以下では両方を指してsubtype関係と呼ぶ。
 
 
 ## 型推論(制約生成~simplify~solve)までの動き
@@ -193,3 +190,8 @@ Expr *ExprRewriter::coerceExistential(Expr *expr, Type toType,
 特に`A`と`Optional<A>`のsubtype関係やprotocolにconformしている型と存在型とのsubtype関係などは(サンプル数少ないけど)ほかの言語では見たことがないので、Swiftの型システムの特徴的な部分と言えそう。
 
 そしてやっと全体の作り、理論との繋がりが見えたので詳細に読んでいくことができそう。
+
+## 参考文献
+
+- TaPL 15章 部分型付けに対する型強制意味論
+- [Z Luo, S Soloviev, T Xue - Information and Computation, 2013 - Elsevier](http://www.sciencedirect.com/science/article/pii/S0890540112001757)
