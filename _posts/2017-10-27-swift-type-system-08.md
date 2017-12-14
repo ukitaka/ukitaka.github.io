@@ -65,7 +65,8 @@ let animal: Animal = Dog()
             (tuple_expr type='()' location=proto.swift:4:25 range=[proto.swift:4:25 - line:4:26]))))
 ```
 
-`Dog: Animal`,  `let animal: Animal` という記法と暗黙的な変換が合わさって一見サブタイピングのような動きをするのがややこしいが、これは述語論理的にはこれは存在汎化にあたる規則なのでサブタイピングとは関係ないはず。
+`Dog: Animal`,  `let animal: Animal` という記法と暗黙的な変換が合わさって一見サブタイピングのような動きをするのがややこしいが、これは述語論理的にはこれは存在汎化にあたる規則なので~~サブタイピングとは関係ないはず~~。サブタイピングでした。 [追記しました。 ](https://blog.waft.me/2017/11/29/swift-type-system-13/)
+
 
 ## 存在型のメソッド呼び出しと"Opening existential"
 
