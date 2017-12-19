@@ -1,14 +1,4 @@
 ---
-title: "2017-12-19-swift-type-system-17.md"
-category: 
-tags: 
-created_at: 2017-12-19 18:49:50 +0900
-updated_at: 2017-12-19 18:49:50 +0900
-published: true
-number: 131
----
-
----
 layout: post
 title:  Swiftの型システムを読む その17 - Constraint Propagation Algorithm
 ---
