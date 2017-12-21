@@ -1,14 +1,4 @@
 ---
-title: "2017-12-21-swift-type-system-19.md"
-category: 
-tags: 
-created_at: 2017-12-21 23:50:26 +0900
-updated_at: 2017-12-21 23:50:26 +0900
-published: true
-number: 133
----
-
----
 layout: post
 title:  Swiftの型システムを読む その19 - Member制約とLookup
 ---
