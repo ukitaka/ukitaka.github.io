@@ -10,8 +10,8 @@ title:  Swiftの型システムを読む その19 - Member制約とLookup
 
 ```swift
 struct Dog {
-  var name: String
-	func bark() { print("わんわん") }
+     var name: String
+     func bark() { print("わんわん") }
 }
 ```
 
