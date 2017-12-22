@@ -3,8 +3,6 @@ layout: post
 title:  Swiftの型システムを読む その20 - UnresolvedDotExprの型推論(制約生成〜Simplify)
 ---
 
-# 
-
 ## 前回の復習
 `E.a`のように呼び出し元の式(`BaseExpr`, `SubExpr`)の型がわかっていいる状態でのメンバーの参照がある場合の`.a`は`UnresolvedDotExpr`として扱われる。
 
