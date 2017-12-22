@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Swiftの型システムを読む その19 -Swiftの型システムを読む その20 - UnresolvedDotExprの型推論(制約生成〜Simplify)
+title:  Swiftの型システムを読む その20 - UnresolvedDotExprの型推論(制約生成〜Simplify)
 ---
 
 # 
