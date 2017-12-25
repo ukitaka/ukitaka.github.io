@@ -1,14 +1,4 @@
 ---
-title: "2017-12-25-swift-type-system-21.md"
-category: 
-tags: 
-created_at: 2017-12-25 18:08:44 +0900
-updated_at: 2017-12-25 18:08:44 +0900
-published: true
-number: 135
----
-
----
 layout: post
 title:   Swiftの型システムを読む その21 -UnresolvedDotExprの型推論を読む(Simplify~Expr書き換え)
 ---
