@@ -1,6 +1,6 @@
 ---
 layout: post
-title:   Swiftの型システムを読む その21 -UnresolvedDotExprの型推論を読む(Simplify~Expr書き換え)
+title:   Swiftの型システムを読む その21 - UnresolvedDotExprの型推論(Simplify~Expr書き換え)
 ---
 
 ## 前回の復習
