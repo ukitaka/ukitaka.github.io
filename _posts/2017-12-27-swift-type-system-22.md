@@ -1,14 +1,4 @@
 ---
-title: "2017-12-27-swift-type-system-22.md"
-category: 
-tags: 
-created_at: 2017-12-27 22:42:37 +0900
-updated_at: 2017-12-27 22:42:37 +0900
-published: true
-number: 137
----
-
----
 layout: post
 title:   Swiftの型システムを読む その22 - ConstraintGraphの理論・実装
 ---
