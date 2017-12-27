@@ -7,7 +7,6 @@ ConstraintGraphは制約のSolveの際に型変数を管理するためのクラ
 名前の通りグラフなのだが、**ハイパーグラフ(hyper graph)**と呼ばれる一般的なグラフを少し拡張したような物になっている。
 
 今回はハイパーグラフについて調べ、実装を読んでみる。
-実際にソルバーでどのように使われているかは次回。
 
 ## ハイパーグラフ(hyper graph)とその周辺用語の整理
 
@@ -16,7 +15,7 @@ ConstraintGraphは制約のSolveの際に型変数を管理するためのクラ
 一般的なグラフのエッジは2つのノード間を結ぶが、ハイパーグラフにおけるエッジは**ハイパーエッジ(hyper edge)**と呼ばれ、**N個のノードを結ぶ。**
 (Nは1でもOK)
 
-<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/a2dfa8b2-515f-4d03-a068-0b4290d94310.png" width=300px >
+![1.png (83.7 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/0a6ccd33-6ad2-4307-a965-6e37fafd88d4.png)
 
 
 形式的にはノードの集合と、エッジを構成するノードの集合の集合のペアからなる。
@@ -26,24 +25,27 @@ ConstraintGraphは制約のSolveの際に型変数を管理するためのクラ
 隣接はあるノードからエッジで結ばれているノードのこと。
 ハイパーグラフでも大体同じ意味だが、ConstraintGraphでは少し性質がことなる。(後述)
 
-<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/1b1fcf90-5b22-478b-874c-0ec100c39b55.png" width=300px >
+![2.png (57.1 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/7349c600-cf51-458e-a05f-7d396121ad1e.png)
+
 
 ### 連結成分(Connected Component) 
 
 単にComponentとも。非連結グラフを構成する連結グラフのこと。
 要はエッジによって結ばれたかたまり。ハイパーグラフでも同じ。
 
-<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/b6a26bb2-9313-4a8a-b084-86b4f47567f4.png" width=300px >
+![3.png (46.6 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/e8c65f86-f4ea-4288-9970-7f5c29aec57a.png)
 
 ### 縮約(Contraction)
 
 一般的なグラフにおいては、グラフからあるエッジをを取り除きそのエッジの両端を一つのノードにまとめることを縮約(Contraction)という。
 
-<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/311dde4b-c521-484b-bac2-647febac0ac6.png" width=300px >
+![4.png (45.6 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/e47d9511-0511-4eae-ae7e-3b97f707c433.png)
+
 
 ハイパーグラフにおいては正確な定義はわからないけど、エッジが結んでいるノードの一部を一つのノードのまとめることを言うみたい。
 
-<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/03ab7981-2f53-47dd-b29c-3fd34bcf08e3.png" width=300px >
+![5.png (69.7 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/06ce62d5-c6dc-4e7f-a708-1b8dafb8a617.png)
+
 
 グラフについてはここまでわかればよさそう。
 グラフ関係ないけど、同値類(Equivalence Class)とか代表元(Representative)とかもし知らなければ調べておくと読みやすいかも。
@@ -55,7 +57,7 @@ ConstraintGraphは制約のSolveの際に型変数を管理するためのクラ
 + ノードは**型変数**
 + エッジは**その型変数を含むConstraintの集合**
 
-<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/7c4394b0-350c-4ceb-aafb-095812c495e9.png" width=300px >
+![6.png (56.3 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/2e31b757-4b78-4eaa-bb6e-d0a47b40e728.png)
 
 
 具体的に実装を見ていく。ノードについてはそのまま`ConstraintGraphNode`というクラスで実装されている。
@@ -146,7 +148,8 @@ node.addConstraint(constraint);
 
 両方とも型変数の場合には隣接ノードとしても登録される。
 
-<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/2041e0bd-301f-4b48-b2ab-7534eed04c15.png" width=300px >
+![7.png (70.4 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/86873cf0-c572-4435-ab53-6dcce0b30e6b.png)
+
 
 ## optimize / contractEdges / mergeEquivalenceClasses
 ソルバーの中では`optimize`が呼ばれているだけなので実態が分かりづらいが、やっていることはシンプルでひたすら`contractEdges()`を呼んで可能な限り縮約しているだけ。
@@ -168,6 +171,7 @@ if (rep1 != rep2)
 
 `mergeEquivalenceClasses`は名前の通り2つの型変数をマージする。
 
+![5.png (69.7 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/8958397d-d86c-4115-8c06-84ee96c444f0.png)
 
 ## まとめ
 
