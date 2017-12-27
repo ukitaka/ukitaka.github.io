@@ -1,6 +1,6 @@
 ---
 layout: post
-title:   Swiftの型システムを読む その22 - ConstraintGraphの理論・実装
+title:   Swiftの型システムを読む その22 - ConstraintGraphの理論と実装
 ---
 
 ConstraintGraphは制約のSolveの際に型変数を管理するためのクラス。
@@ -16,7 +16,8 @@ ConstraintGraphは制約のSolveの際に型変数を管理するためのクラ
 一般的なグラフのエッジは2つのノード間を結ぶが、ハイパーグラフにおけるエッジは**ハイパーエッジ(hyper edge)**と呼ばれ、**N個のノードを結ぶ。**
 (Nは1でもOK)
 
-![1.png (107.1 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/a2dfa8b2-515f-4d03-a068-0b4290d94310.png)
+<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/a2dfa8b2-515f-4d03-a068-0b4290d94310.png" width=300px >
+
 
 形式的にはノードの集合と、エッジを構成するノードの集合の集合のペアからなる。
 
@@ -25,25 +26,24 @@ ConstraintGraphは制約のSolveの際に型変数を管理するためのクラ
 隣接はあるノードからエッジで結ばれているノードのこと。
 ハイパーグラフでも大体同じ意味だが、ConstraintGraphでは少し性質がことなる。(後述)
 
-![2.png (126.2 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/1b1fcf90-5b22-478b-874c-0ec100c39b55.png)
+<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/1b1fcf90-5b22-478b-874c-0ec100c39b55.png" width=300px >
 
 ### 連結成分(Connected Component) 
 
 単にComponentとも。非連結グラフを構成する連結グラフのこと。
 要はエッジによって結ばれたかたまり。ハイパーグラフでも同じ。
 
-![3.png (65.5 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/b6a26bb2-9313-4a8a-b084-86b4f47567f4.png)
+<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/b6a26bb2-9313-4a8a-b084-86b4f47567f4.png" width=300px >
 
 ### 縮約(Contraction)
 
 一般的なグラフにおいては、グラフからあるエッジをを取り除きそのエッジの両端を一つのノードにまとめることを縮約(Contraction)という。
 
-![4.png (85.9 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/311dde4b-c521-484b-bac2-647febac0ac6.png)
+<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/311dde4b-c521-484b-bac2-647febac0ac6.png" width=300px >
 
 ハイパーグラフにおいては正確な定義はわからないけど、エッジが結んでいるノードの一部を一つのノードのまとめることを言うみたい。
 
-![5.png (113.4 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/03ab7981-2f53-47dd-b29c-3fd34bcf08e3.png)
-
+<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/03ab7981-2f53-47dd-b29c-3fd34bcf08e3.png" width=300px >
 
 グラフについてはここまでわかればよさそう。
 グラフ関係ないけど、同値類(Equivalence Class)とか代表元(Representative)とかもし知らなければ調べておくと読みやすいかも。
@@ -55,7 +55,7 @@ ConstraintGraphは制約のSolveの際に型変数を管理するためのクラ
 + ノードは**型変数**
 + エッジは**その型変数を含むConstraintの集合**
 
-![6.png (143.9 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/7c4394b0-350c-4ceb-aafb-095812c495e9.png)
+<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/7c4394b0-350c-4ceb-aafb-095812c495e9.png" width=300px >
 
 
 具体的に実装を見ていく。ノードについてはそのまま`ConstraintGraphNode`というクラスで実装されている。
@@ -146,8 +146,7 @@ node.addConstraint(constraint);
 
 両方とも型変数の場合には隣接ノードとしても登録される。
 
-![7.png (147.4 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/2041e0bd-301f-4b48-b2ab-7534eed04c15.png)
-
+<img src="https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/2041e0bd-301f-4b48-b2ab-7534eed04c15.png" width=300px >
 
 ## optimize / contractEdges / mergeEquivalenceClasses
 ソルバーの中では`optimize`が呼ばれているだけなので実態が分かりづらいが、やっていることはシンプルでひたすら`contractEdges()`を呼んで可能な限り縮約しているだけ。
