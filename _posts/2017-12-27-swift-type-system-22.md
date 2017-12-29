@@ -173,6 +173,29 @@ if (rep1 != rep2)
 
 ![5.png (69.7 kB)](https://img.esa.io/uploads/production/attachments/2245/2017/12/27/2884/8958397d-d86c-4115-8c06-84ee96c444f0.png)
 
+## bindTypeVariable
+
+`solution`を1つ受け取る方の`applySolution`で使われる。
+(`applySolution`は`solveSimplify`の過程で使われるものと、TypeCheckerで最終的に使われるものの2つがあって、前者)
+
+```cpp
+void ConstraintSystem::applySolution(const Solution &solution) { ... }
+```
+
+ここで`ConstarintSystem::assignFixedType`が呼ばれ、さらにそこから`bindTypeVariable`が呼ばれる。
+
+```cpp
+assignFixedType(binding.first, binding.second, /*updateState=*/false);
+```
+
+```cpp
+// Notify the constraint graph.
+CG.bindTypeVariable(typeVar, type);
+```
+
+そうするとNodeの`FixedBinding`というフラグがたつ。
+(どう使われる？)
+
 ## まとめ
 
 だいたいどんなものかはわかったので、実際の使われ方を次回見てみる。
