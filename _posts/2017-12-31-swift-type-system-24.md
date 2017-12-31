@@ -1,14 +1,4 @@
 ---
-title: "2017-12-31-swift-type-system-24.md"
-category: 
-tags: 
-created_at: 2017-12-31 18:32:17 +0900
-updated_at: 2017-12-31 18:32:17 +0900
-published: true
-number: 139
----
-
----
 layout: post
 title:   Swiftの型システムを読む その24 - PotentialBinding周辺の用語・関数
 ---
