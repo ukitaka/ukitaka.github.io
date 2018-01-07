@@ -1,14 +1,4 @@
 ---
-title: "2018-01-07-swift-type-system-25.md"
-category: 
-tags: 
-created_at: 2018-01-07 20:52:42 +0900
-updated_at: 2018-01-07 20:52:42 +0900
-published: true
-number: 141
----
-
----
 layout: post
 title:   Swiftの型システムを読む その25 - PotentialBindingの決定
 ---
