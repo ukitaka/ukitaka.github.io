@@ -57,7 +57,7 @@ public func type<T, Metatype>(of value: T) -> Metatype {
 @_semantics("typechecker.type(of:)")
 ```
 
-`@_semantics`は名前の通り特別なセマンティクスが与えられている関数に付けられるアトリビュート。簡単に言えば**コンパイラによって特別扱いされ、コンパイル時に意味が与えられる**。
+`@_semantics`は名前の通り特別なセマンティクスが与えられている関数に付けられるアトリビュート。簡単に言えば**コンパイル時に実際の実装が挿入される**。
 与えられた文字列をキーにしてコンパイル時に拾っていて、`typechecker.type(of:)` という名前でgrepしてみると、どうやら`lib/Sema/TypeChecker.cpp`で拾っているようだ。
 
 ```cpp
