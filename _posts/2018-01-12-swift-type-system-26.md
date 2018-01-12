@@ -34,7 +34,7 @@ type(of: animal) // Dog
 
 ## 実装をみてみる
 
-[stdlib/core/Builtin.swift](https://github.com/apple/swift/blob/a1e3c768869c8f03d6902c27476946bc8bc3d3db/stdlib/public/core/Builtin.swift#L728-L738)に実装がある…あるのだが、みてみると「この実装は使われていないと書いてある。どういうことだろう？と思って調べてみたのが今回の記事。
+[stdlib/core/Builtin.swift](https://github.com/apple/swift/blob/a1e3c768869c8f03d6902c27476946bc8bc3d3db/stdlib/public/core/Builtin.swift#L728-L738)に実装がある…あるのだが、みてみると「この実装は使われていない」と書いてある。どういうことだろう？と思って調べてみたのが今回の記事。
 
 ```swift
 @_inlineable // FIXME(sil-serialize-all)
