@@ -1,14 +1,4 @@
 ---
-title: "2018-01-15-swift-type-system-27.md"
-category: 
-tags: 
-created_at: 2018-01-15 20:34:59 +0900
-updated_at: 2018-01-15 20:34:59 +0900
-published: true
-number: 145
----
-
----
 layout: post
 title:   Swiftの型システムを読む その27 - ImplicitlyUnwrappedOptionalとPotentialBindings
 ---
