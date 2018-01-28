@@ -1,14 +1,4 @@
 ---
-title: "2018-01-28-finatra-custom-request.md"
-category: 
-tags: 
-created_at: 2018-01-28 22:28:10 +0900
-updated_at: 2018-01-28 22:28:10 +0900
-published: true
-number: 146
----
-
----
 layout: post
 title:   finatraでCustom requestを作るときはRequestProxyを使う
 ---
